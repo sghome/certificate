@@ -1,18 +1,23 @@
+
+
+
+
+
 const canvas = document.getElementById('canvas')
 const ctx = canvas.getContext('2d')
 const nameInput = document.getElementById('name')
 const downloadBtn = document.getElementById('download-btn')
 
 image = new Image()
-image.src = 'certificate.jpg'
+image.src = 'certificate7.png'
 image.onload = function () {
 	drawImage()
 }
 function imgChange() {
-	if(image.src.indexOf('certificate.jpg') > -1)
+	if(image.src.indexOf('certificate7.png') > -1)
 	image.src='alt.jpg';
 	else
-	image.src='certificate.jpg';
+	image.src='certificate7.png';
 	image.onload = function(){
 		drawImage()
   };
@@ -35,3 +40,41 @@ downloadBtn.addEventListener('click', function () {
 	downloadBtn.href = canvas.toDataURL('image/jpg')
 	downloadBtn.download = 'Certificate - ' + nameInput.value
 })
+
+
+
+
+
+
+
+
+
+
+
+// translate mouse movement into 3D rotation
+window.addEventListener("mousemove", e => {
+  w = window.innerWidth;
+  h = window.innerHeight;
+
+  const rotx = 7 - e.pageY * (14 / h);
+  const roty = -8 + e.pageX * (16 / w);
+
+  document.getElementById(
+  "card").
+  style.transform = `rotateY(${roty}deg) rotateX(${rotx}deg)`;
+});
+
+// translate touch movement into 3D rotation
+window.addEventListener("touchmove", e => {
+  w = window.innerWidth;
+  h = window.innerHeight;
+
+  const rotx = 7 - e.changedTouches[0].pageY * (14 / h);
+  const roty = -10 + e.changedTouches[0].pageX * (20 / w);
+
+  document.getElementById(
+  "card").
+  style.transform = `rotateY(${roty}deg) rotateX(${rotx}deg)`;
+});
+
+
