@@ -9,15 +9,15 @@ const nameInput = document.getElementById('name')
 const downloadBtn = document.getElementById('download-btn')
 
 image = new Image()
-image.src = 'certificate7.png'
+image.src = 'cert.jpg'
 image.onload = function () {
 	drawImage()
 }
 function imgChange() {
-	if(image.src.indexOf('certificate7.png') > -1)
-	image.src='alt.jpg';
+	if(image.src.indexOf('cert.jpg') > -1)
+	image.src='cert.jpg';
 	else
-	image.src='certificate7.png';
+	image.src='cert.jpg';
 	image.onload = function(){
 		drawImage()
   };
@@ -25,9 +25,9 @@ function imgChange() {
 }
 function drawImage() {
 	ctx.drawImage(image, 0, 0, canvas.width, canvas.height)
-	ctx.font = '80px arial'
-	if(image.src.indexOf('alt.jpg') > -1)
-	ctx.fillText(nameInput.value, 850, 620)
+	ctx.font = '55px arial'
+	if(image.src.indexOf('cert.jpg') > -1)
+	ctx.fillText(nameInput.value, 70, 179)
 	else
 	ctx.fillText(nameInput.value, 800, 580)
 }
@@ -40,6 +40,14 @@ downloadBtn.addEventListener('click', function () {
 	downloadBtn.href = canvas.toDataURL('image/jpg')
 	downloadBtn.download = 'Certificate - ' + nameInput.value
 })
+
+
+
+
+
+
+
+
 
 
 
